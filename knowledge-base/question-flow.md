@@ -396,6 +396,29 @@ OPTIONS:
 
 **Logic:** If F18 = "Rights Owner only" or "Featured Artist only" or "Not sure" → Trigger Gotcha #7b (Only Registered One Side)
 
+---
+
+### Always Ask (Everyone):
+
+```
+F19: Do you know if your music has been played on SiriusXM (satellite radio)?
+TYPE: single-select
+OPTIONS:
+  - Yes, I know it's been played on SXM
+  - No, I don't think so
+  - Not sure
+```
+
+**Logic:** If F19 = "Yes" AND Q8 (SoundExchange) = "No" → Escalate Gotcha #7 to CRITICAL priority. SXM royalties are ~$35/spin and can add up quickly.
+
+**IMPORTANT CONTEXT:**
+SiriusXM play is extremely valuable for royalties. Many artists don't realize:
+1. They're getting SXM airplay (especially in genre-specific channels)
+2. How much per-spin royalties are worth (~$35 total per spin)
+3. That they need SoundExchange registration to collect these
+
+If an artist confirms SXM play, SoundExchange becomes the #1 priority action item.
+
 **IMPORTANT CONTEXT FOR AI:**
 SoundExchange has TWO separate registrations:
 1. Rights Owner (who owns the master recording) - 50% of royalties

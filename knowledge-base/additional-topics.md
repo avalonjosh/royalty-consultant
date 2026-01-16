@@ -162,20 +162,28 @@ The Music Modernization Act (2018) created a blanket mechanical license administ
 
 ### The Problem
 
-The MLC only collects US mechanical royalties. If you have international listeners, those royalties are collected by foreign collection societies.
+**The MLC only collects US mechanical royalties.** This is one of the most misunderstood facts in the indie music world. If you have international listeners, those mechanical royalties are collected by foreign collection societies - and if you're not registered with them (or don't have a publishing admin who is), that money goes uncollected.
+
+**Example Impact:**
+- Artist has 40% international streams
+- Earns $1,000/month from US mechanicals via MLC
+- Could be earning ~$660/month more from international mechanicals
+- Without publishing admin: $0 of that international money is collected
 
 ### How International Collection Works
 
-**With a publishing administrator:**
+**With a publishing administrator (like Songtrust):**
 - They affiliate with foreign sub-publishers or directly with foreign societies
 - They register your works internationally
 - They collect and pay you (minus commission)
+- **This is the only realistic way for indie artists to collect international mechanicals**
 
 **Without a publishing administrator:**
 - US PROs (ASCAP/BMI) have reciprocal agreements with foreign PROs
 - Performance royalties from foreign radio/TV flow back (with delays)
-- BUT mechanical royalties often don't flow back automatically
+- BUT **mechanical royalties often don't flow back automatically**
 - Many countries have separate mechanical societies
+- You'd need to register directly with each foreign society (impractical)
 
 ---
 
@@ -222,9 +230,16 @@ If you're a US artist with international radio play, you may be entitled to fore
 
 | International Audience | Recommendation |
 |------------------------|----------------|
-| < 10% international | Probably fine with US-only |
-| 10-30% international | Consider publishing admin |
-| > 30% international | Strongly recommend publishing admin |
+| < 10% international | Probably fine with US-only (MLC + PRO) |
+| 10-30% international | Consider publishing admin - you're leaving money on the table |
+| > 30% international | **Strongly recommend Songtrust or similar** - without it, a significant portion of your mechanical royalties goes uncollected |
+
+**Why Songtrust Specifically?**
+- Handles both US (via MLC) AND international mechanical collection
+- Also handles international performance royalties
+- Comprehensive international network of sub-publishers
+- Reasonable commission (15-20%) compared to losing 100% of international mechanicals
+- Good for indie artists without existing publisher relationships
 
 ---
 
@@ -400,6 +415,11 @@ Every sync placement requires TWO separate licenses:
 **Commission:** 15% performance / 20% mechanical
 **Setup fee:** $100 one-time
 **Good for:** International collection, long catalog
+**Key Advantage - International Mechanicals:**
+- Songtrust collects mechanical royalties BOTH domestically (via The MLC) AND internationally
+- The MLC only collects US mechanical royalties - it does NOT collect international
+- For indie artists with significant international streams, this is huge
+- Without Songtrust (or similar), international mechanical royalties go uncollected
 **Gotchas:**
 - Higher commission than some alternatives
 - Minimum earnings threshold for some features
@@ -441,13 +461,24 @@ This is one of the most common points of confusion for independent artists.
 ### When You Need a Publishing Admin
 
 **Probably need one if:**
-- 30%+ international audience
+- 30%+ international audience (critical - see below)
 - Complex co-writing situations
 - Don't want to manage registrations yourself
 - Want international mechanical collection
 
+**IMPORTANT - International Streams:**
+The MLC only collects US mechanical royalties. If you have significant international streams and no publishing admin, those mechanical royalties are going uncollected. This is one of the biggest gaps for indie artists.
+
+**Recommendation:** For indie artists with significant international audience (30%+ streams from outside US), Songtrust is strongly recommended because it handles:
+- US mechanicals (via The MLC)
+- International mechanicals (via foreign collection societies)
+- International performance royalties
+- All in one place
+
+The commission (15-20%) is worth it when the alternative is collecting 0% of international mechanicals.
+
 **Can probably DIY if:**
-- Primarily US audience
+- Primarily US audience (80%+ US streams)
 - Solo writer (no splits)
 - Willing to manage own registrations
 - Comfortable with PRO portal, MLC portal, etc.

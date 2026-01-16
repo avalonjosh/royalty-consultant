@@ -138,7 +138,7 @@ Rules for detecting problem situations in royalty intake forms. Each gotcha has 
 
 ## 7. No SoundExchange Registration
 
-**SEVERITY:** 🔴 Critical (if getting radio play) / 🟡 Warning (if not)
+**SEVERITY:** 🔴 Critical (if getting SXM/Pandora play) / 🟡 Warning (if not)
 
 **TRIGGER:**
 - SoundExchange = no AND
@@ -159,11 +159,15 @@ Most indie artists need BOTH registrations to collect 100%.
 
 Also critical: You're entitled to these royalties even on COVER SONGS. If you recorded and performed a cover of someone else's song, you own the Rights Owner and Featured Artist royalties for YOUR recording (not the underlying composition royalties - those go to the songwriter).
 
+**SiriusXM Play Detection:**
+Artists should be asked if they know their music has been played on SiriusXM. If yes, SoundExchange registration becomes **highest priority** - SXM royalties can be $35+ per spin and add up quickly. Many artists don't realize they're getting SXM play or don't know how valuable those royalties are.
+
 **PLAN ACTION:**
 - "Register with SoundExchange as BOTH Rights Owner AND Featured Artist"
 - "Even if you've registered once, verify you're registered on both sides"
 - "This applies to cover songs too - you own the master royalties for your recordings"
 - Note: "SXM spins are extremely valuable (~$35/spin total at 100% ownership)"
+- If artist confirms SXM play: "You have confirmed SiriusXM radio play - this makes SoundExchange registration your TOP priority. At ~$35/spin, even moderate airplay can mean significant unclaimed royalties."
 
 ---
 
@@ -468,7 +472,7 @@ For streaming services (Spotify, Apple Music), you do NOT need a mechanical lice
 
 ## 21. International Audience Without Publishing Admin
 
-**SEVERITY:** 🟡 Warning
+**SEVERITY:** 🔴 Critical (if 30%+ international) / 🟡 Warning (if 10-30%)
 
 **TRIGGER:**
 - Reports 30%+ of audience outside US AND
@@ -476,14 +480,21 @@ For streaming services (Spotify, Apple Music), you do NOT need a mechanical lice
 - Only registered with US entities
 
 **CONSEQUENCE:**
-- The MLC only collects US mechanical royalties
-- International mechanical royalties going uncollected
+- **The MLC only collects US mechanical royalties** - this is critical
+- International mechanical royalties going completely uncollected
+- For artist with 40% international streams, this could be 40%+ of mechanical income missing
 - Some foreign performance royalties may flow back via PRO, but with delays and gaps
+- Mechanical royalties require a publishing admin to collect internationally
+
+**IMPORTANT CONTEXT:**
+The MLC does NOT collect international mechanical royalties. Many indie artists don't realize this. If you have significant international streams and no publishing admin, a substantial portion of your mechanical royalties is going uncollected - not delayed, but actually never collected.
 
 **PLAN ACTION:**
-- "With significant international audience, consider a publishing administrator"
+- "With significant international audience, a publishing administrator is strongly recommended"
 - "The MLC only covers US royalties - international mechanicals need separate collection"
-- "Songtrust, TuneCore Publishing, and others handle international registration"
+- "**Songtrust is recommended** for indie artists with international audiences because it handles BOTH US (via MLC) AND international mechanical collection"
+- "The 15-20% commission is worth it when the alternative is collecting 0% of international mechanicals"
+- "For artists with 30%+ international streams, this is not optional - it's essential for collecting what you're owed"
 
 ---
 

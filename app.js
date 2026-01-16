@@ -372,6 +372,8 @@ function collectFollowUpData() {
 }
 
 // Report Generation
+let lastReportData = null; // Store for chat context
+
 window.generateReport = function() {
   collectPageData(4);
 
@@ -385,9 +387,15 @@ window.generateReport = function() {
       const result = runPipeline(formData, followUpData, CONFIG);
       generatedReport = result.reportMarkdown;
 
+      // Save report data for chat context
+      lastReportData = result.reportData;
+
       // Render the report
       const reportContent = document.getElementById('report-content');
       reportContent.innerHTML = marked.parse(generatedReport);
+
+      // Reset chat for new report
+      resetChat();
 
       // Hide loading and show report
       document.getElementById('loading-overlay').classList.remove('active');
@@ -425,6 +433,8 @@ window.startOver = function() {
   formData = {};
   followUpData = {};
   generatedReport = '';
+  lastReportData = null;
+  resetChat();
 
   // Reset form
   document.querySelectorAll('input').forEach(input => {
@@ -438,4 +448,121 @@ window.startOver = function() {
   currentPage = 1;
   showPage(1);
   updateProgress();
+};
+
+// =============================================================================
+// CHAT FUNCTIONALITY
+// =============================================================================
+
+let chatHistory = [];
+
+function resetChat() {
+  chatHistory = [];
+  const messagesContainer = document.getElementById('chat-messages');
+  if (messagesContainer) {
+    messagesContainer.innerHTML = `
+      <div class="chat-message assistant-message">
+        <div class="message-content">
+          I've analyzed your royalty setup. Feel free to ask me anything about your report, what the different royalty types mean, or which actions to prioritize!
+        </div>
+      </div>
+    `;
+  }
+}
+
+function appendChatMessage(role, content) {
+  const messagesContainer = document.getElementById('chat-messages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `chat-message ${role}-message`;
+
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+
+  // Parse markdown for assistant messages
+  if (role === 'assistant') {
+    contentDiv.innerHTML = marked.parse(content);
+  } else {
+    contentDiv.textContent = content;
+  }
+
+  messageDiv.appendChild(contentDiv);
+  messagesContainer.appendChild(messageDiv);
+
+  // Scroll to bottom
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function showChatLoading() {
+  document.getElementById('chat-loading').style.display = 'flex';
+}
+
+function hideChatLoading() {
+  document.getElementById('chat-loading').style.display = 'none';
+}
+
+window.handleChatKeypress = function(event) {
+  if (event.key === 'Enter') {
+    sendChatMessage();
+  }
+};
+
+window.sendChatMessage = async function() {
+  const input = document.getElementById('chat-input');
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  // Check if we have report data
+  if (!lastReportData) {
+    alert('Please generate a report first before asking questions.');
+    return;
+  }
+
+  // Add user message to UI
+  appendChatMessage('user', message);
+  input.value = '';
+
+  // Show loading
+  showChatLoading();
+
+  try {
+    // Build context for API
+    const context = {
+      formData: formData,
+      followUpData: followUpData,
+      reportData: lastReportData
+    };
+
+    // Call chat API
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: message,
+        context: context,
+        chatHistory: chatHistory
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Update history
+    chatHistory.push({ role: 'user', content: message });
+    chatHistory.push({ role: 'assistant', content: data.response });
+
+    // Display response
+    hideChatLoading();
+    appendChatMessage('assistant', data.response);
+
+  } catch (error) {
+    console.error('Chat error:', error);
+    hideChatLoading();
+    appendChatMessage('assistant', "I'm sorry, I encountered an error. Please try again in a moment.");
+  }
 };

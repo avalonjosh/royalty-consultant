@@ -430,6 +430,39 @@
           <button type="button" class="btn btn-secondary" onclick="downloadReport()">Download as PDF</button>
           <button type="button" class="btn btn-primary" onclick="startOver()">Start Over</button>
         </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-section" id="chat-interface">
+          <div class="chat-header">
+            <h3>Questions about your report?</h3>
+            <p class="chat-subtitle">Ask me anything about your royalty situation or action plan.</p>
+          </div>
+
+          <div id="chat-messages" class="chat-messages">
+            <div class="chat-message assistant-message">
+              <div class="message-content">
+                I've analyzed your royalty setup. Feel free to ask me anything about your report, what the different royalty types mean, or which actions to prioritize!
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-container">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="e.g., What's a publishing entity?"
+              onkeypress="handleChatKeypress(event)"
+            >
+            <button type="button" class="btn btn-primary" onclick="sendChatMessage()">
+              Send
+            </button>
+          </div>
+
+          <div class="chat-loading" id="chat-loading" style="display: none;">
+            <div class="chat-spinner"></div>
+            <span>Thinking...</span>
+          </div>
+        </div>
       </section>
     </main>
 
