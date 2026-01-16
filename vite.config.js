@@ -11,11 +11,9 @@ export default defineConfig({
     open: true
   },
   build: {
-    outDir: resolve(__dirname, 'dist-web'),
-    emptyOutDir: true,
-    rollupOptions: {
-      input: resolve(__dirname, 'web/index.html')
-    }
+    // Output to project-root/dist (not web/dist)
+    outDir: resolve(__dirname, 'dist'),
+    emptyOutDir: true
   },
   resolve: {
     alias: {
