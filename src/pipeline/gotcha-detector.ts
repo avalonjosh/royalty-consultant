@@ -158,9 +158,14 @@ export function detectGotchas(data: CompleteIntake): TriggeredGotcha[] {
 
   // #8: Multiple Artist Names
   if (intake.q13_changed_names === "yes") {
-    // Count names if provided
-    const names = followUps.f7_previous_names?.split(",").length || 1;
-    if (names >= 2) {
+    // Count names if provided - handle both array (new) and string (old) formats
+    let names = 1;
+    if (Array.isArray(followUps.f7_previous_names)) {
+      names = followUps.f7_previous_names.length;
+    } else if (typeof followUps.f7_previous_names === "string") {
+      names = followUps.f7_previous_names.split(",").length;
+    }
+    if (names >= 1) {
       addGotcha(
         "multiple_artist_names",
         `${names + 1} total artist names - registrations may be fragmented`

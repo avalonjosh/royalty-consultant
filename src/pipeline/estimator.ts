@@ -278,7 +278,13 @@ export function calculateEstimates(
   // Name changes
   if (intake.q13_changed_names === "yes") {
     complexityPoints += 1;
-    const nameCount = (followUps.f7_previous_names?.split(",").length || 0) + 1;
+    // Handle both array (new) and string (old) formats
+    let nameCount = 1;
+    if (Array.isArray(followUps.f7_previous_names)) {
+      nameCount = followUps.f7_previous_names.length + 1;
+    } else if (typeof followUps.f7_previous_names === "string") {
+      nameCount = (followUps.f7_previous_names.split(",").length || 0) + 1;
+    }
     if (nameCount > 2) complexityPoints += 1;
   }
 
