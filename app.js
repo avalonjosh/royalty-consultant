@@ -14,7 +14,33 @@ let generatedReport = '';
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   updateProgress();
+  setupDynamicQ11Label();
 });
+
+// Dynamically update Q11 label based on Q10 selection
+function setupDynamicQ11Label() {
+  const q10Radios = document.querySelectorAll('input[name="q10_publishing_admin"]');
+  q10Radios.forEach(radio => {
+    radio.addEventListener('change', updateQ11Label);
+  });
+}
+
+function updateQ11Label() {
+  const q10Value = getRadioValue('q10_publishing_admin');
+  const q11Label = document.getElementById('q11_label');
+  const q11Help = document.getElementById('q11_help');
+
+  // If user has a current publishing admin (not none, distrokid, or not_sure)
+  const hasCurrentAdmin = q10Value && !['none', 'not_sure', 'distrokid'].includes(q10Value);
+
+  if (hasCurrentAdmin) {
+    q11Label.textContent = 'Have you used a DIFFERENT publishing administrator before your current one? *';
+    q11Help.textContent = 'This helps us check for potential conflicts with previous administrators.';
+  } else {
+    q11Label.textContent = 'Have you EVER used a publishing administrator in the past? *';
+    q11Help.textContent = 'This is important to check for potential conflicts.';
+  }
+}
 
 // Page Navigation
 window.nextPage = function(fromPage) {
@@ -85,7 +111,8 @@ function validatePage(pageNum) {
               validateRequired('q8_soundexchange', 'radio') &&
               validateRequired('q9_mlc', 'radio') &&
               validateRequired('q10_publishing_admin', 'radio') &&
-              validateRequired('q11_previous_admin', 'radio');
+              validateRequired('q11_previous_admin', 'radio') &&
+              validateRequired('q17_sxm_play', 'radio');
   } else if (pageNum === 3) {
     isValid = validateRequired('q12_has_cowriters', 'radio') &&
               validateRequired('q13_changed_names', 'radio') &&
@@ -143,6 +170,7 @@ function collectPageData(pageNum) {
     formData.q9_mlc = getRadioValue('q9_mlc');
     formData.q10_publishing_admin = getRadioValue('q10_publishing_admin');
     formData.q11_previous_admin = getRadioValue('q11_previous_admin');
+    formData.q17_sxm_play = getRadioValue('q17_sxm_play');
   } else if (pageNum === 3) {
     formData.q12_has_cowriters = getRadioValue('q12_has_cowriters');
     formData.q13_changed_names = getRadioValue('q13_changed_names');
@@ -265,13 +293,13 @@ function generateFollowUpQuestions() {
     });
   }
 
-  // F7-F8: Name change details
+  // F7-F8: Name change details - allow multiple entries
   if (formData.q13_changed_names === 'yes') {
     questions.push({
       id: 'f7_previous_names',
       question: 'What were your previous artist names?',
-      type: 'text',
-      placeholder: 'List all previous names, separated by commas'
+      type: 'multi_text',
+      placeholder: 'Enter artist name'
     });
   }
 
@@ -332,10 +360,54 @@ function renderQuestion(q) {
     html += '</div>';
   } else if (q.type === 'text') {
     html += `<input type="text" id="${q.id}" placeholder="${q.placeholder || ''}">`;
+  } else if (q.type === 'multi_text') {
+    html += `
+      <div class="multi-input-container" id="${q.id}_container">
+        <div class="multi-input-row">
+          <input type="text" class="multi-input" name="${q.id}" placeholder="${q.placeholder || ''}">
+          <button type="button" class="btn btn-small btn-remove" onclick="removeMultiInput(this)" style="display: none;">×</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-small btn-add" onclick="addMultiInput('${q.id}', '${q.placeholder || ''}')">+ Add another name</button>
+    `;
   }
 
   div.innerHTML = html;
   return div;
+}
+
+// Multi-input handlers for multiple artist names
+window.addMultiInput = function(fieldId, placeholder) {
+  const container = document.getElementById(`${fieldId}_container`);
+  const newRow = document.createElement('div');
+  newRow.className = 'multi-input-row';
+  newRow.innerHTML = `
+    <input type="text" class="multi-input" name="${fieldId}" placeholder="${placeholder}">
+    <button type="button" class="btn btn-small btn-remove" onclick="removeMultiInput(this)">×</button>
+  `;
+  container.appendChild(newRow);
+
+  // Show remove button on all rows when there's more than one
+  updateRemoveButtons(container);
+};
+
+window.removeMultiInput = function(button) {
+  const row = button.closest('.multi-input-row');
+  const container = row.closest('.multi-input-container');
+  row.remove();
+
+  // Update remove button visibility
+  updateRemoveButtons(container);
+};
+
+function updateRemoveButtons(container) {
+  const rows = container.querySelectorAll('.multi-input-row');
+  rows.forEach(row => {
+    const removeBtn = row.querySelector('.btn-remove');
+    if (removeBtn) {
+      removeBtn.style.display = rows.length > 1 ? 'inline-block' : 'none';
+    }
+  });
 }
 
 function collectFollowUpData() {
@@ -363,10 +435,21 @@ function collectFollowUpData() {
       followUpData[id] = Array.from(checkboxes).map(cb => cb.value);
     }
 
-    // Check for text input
+    // Check for text input (single)
     const textInput = document.getElementById(id);
     if (textInput && textInput.value) {
       followUpData[id] = textInput.value;
+    }
+
+    // Check for multi-text inputs (multiple artist names)
+    const multiInputs = document.querySelectorAll(`input.multi-input[name="${id}"]`);
+    if (multiInputs.length > 0) {
+      const values = Array.from(multiInputs)
+        .map(input => input.value.trim())
+        .filter(val => val !== '');
+      if (values.length > 0) {
+        followUpData[id] = values;
+      }
     }
   });
 }

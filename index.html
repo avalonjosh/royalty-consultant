@@ -285,9 +285,9 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label>Have you EVER used a publishing administrator in the past? *</label>
-          <span class="help-text">This is important to check for potential conflicts.</span>
+        <div class="form-group" id="q11_container">
+          <label id="q11_label">Have you EVER used a publishing administrator in the past? *</label>
+          <span class="help-text" id="q11_help">This is important to check for potential conflicts.</span>
           <div class="radio-group">
             <label class="radio-option">
               <input type="radio" name="q11_previous_admin" value="yes">
@@ -299,6 +299,25 @@
             </label>
             <label class="radio-option">
               <input type="radio" name="q11_previous_admin" value="not_sure">
+              <span>Not sure</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Do you know if your music has been played on SiriusXM satellite radio? *</label>
+          <span class="help-text">SiriusXM royalties can be significant (~$35 per spin) and are collected through SoundExchange.</span>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="q17_sxm_play" value="yes">
+              <span>Yes</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="q17_sxm_play" value="no">
+              <span>No</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="q17_sxm_play" value="not_sure">
               <span>Not sure</span>
             </label>
           </div>

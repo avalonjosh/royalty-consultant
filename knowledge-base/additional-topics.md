@@ -202,13 +202,20 @@ The Music Modernization Act (2018) created a blanket mechanical license administ
 
 ### Reciprocal Agreement Gaps
 
-**What flows automatically:**
+**What flows automatically (but with caveats):**
 - Performance royalties from foreign radio/TV/venues (eventually)
+- BUT: Reciprocal agreements have delays, gaps, and some royalties get lost
+- PROs like ASCAP/BMI don't directly affiliate with every foreign society
 
-**What often doesn't:**
+**What often doesn't flow at all:**
 - Foreign mechanical royalties (streaming in other countries)
 - Some digital performance royalties
 - Neighboring rights (for US artists in some territories)
+
+**Why a publishing admin like Songtrust helps with performance royalties too:**
+- Songtrust directly affiliates with 60+ international collection societies
+- This catches performance royalties that might fall through PRO reciprocal agreement gaps
+- Results in more comprehensive international collection overall
 
 ---
 
@@ -236,10 +243,13 @@ If you're a US artist with international radio play, you may be entitled to fore
 
 **Why Songtrust Specifically?**
 - Handles both US (via MLC) AND international mechanical collection
-- Also handles international performance royalties
+- Collects MORE international performance/publishing royalties than PRO reciprocal agreements alone
+- Directly affiliates with 60+ collection societies (vs relying on PRO reciprocal deals)
 - Comprehensive international network of sub-publishers
 - Reasonable commission (15-20%) compared to losing 100% of international mechanicals
 - Good for indie artists without existing publisher relationships
+
+**In short:** Songtrust doesn't just fill the MLC gap for international mechanicals - it also improves your international performance royalty collection beyond what ASCAP/BMI reciprocal agreements provide.
 
 ---
 
@@ -415,11 +425,21 @@ Every sync placement requires TWO separate licenses:
 **Commission:** 15% performance / 20% mechanical
 **Setup fee:** $100 one-time
 **Good for:** International collection, long catalog
-**Key Advantage - International Mechanicals:**
-- Songtrust collects mechanical royalties BOTH domestically (via The MLC) AND internationally
-- The MLC only collects US mechanical royalties - it does NOT collect international
-- For indie artists with significant international streams, this is huge
-- Without Songtrust (or similar), international mechanical royalties go uncollected
+**Key Advantages - International Collection:**
+1. **International Mechanicals:**
+   - Songtrust collects mechanical royalties BOTH domestically (via The MLC) AND internationally
+   - The MLC only collects US mechanical royalties - it does NOT collect international
+   - For indie artists with significant international streams, this is huge
+   - Without Songtrust (or similar), international mechanical royalties go uncollected
+
+2. **International Performance Royalties (Publishing):**
+   - While US PROs (ASCAP/BMI) have reciprocal agreements with foreign PROs, there are gaps and delays
+   - Songtrust directly affiliates with 60+ collection societies worldwide
+   - This means more comprehensive international performance royalty collection than relying on PRO reciprocal agreements alone
+   - Faster collection and fewer royalties falling through the cracks
+
+**Bottom line:** Songtrust collects more international royalties overall (both mechanical AND performance/publishing) compared to just having a PRO + MLC registration.
+
 **Gotchas:**
 - Higher commission than some alternatives
 - Minimum earnings threshold for some features
