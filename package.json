@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "vite build",
     "demo": "tsx src/demo.ts",
     "test": "tsx src/demo.ts",
     "dev": "vite",
