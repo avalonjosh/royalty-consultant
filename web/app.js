@@ -1,6 +1,6 @@
 import { marked } from 'marked';
-import { runPipeline } from '../src/pipeline/index.js';
-import { CONFIG } from '../src/types/report.js';
+import { runPipeline } from '../src/pipeline/index.ts';
+import { CONFIG } from '../src/types/report.ts';
 
 // Current page state
 let currentPage = 1;
