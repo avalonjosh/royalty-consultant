@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   root: 'web',
@@ -8,7 +11,8 @@ export default defineConfig({
     open: true
   },
   build: {
-    outDir: '../dist-web',
+    outDir: resolve(__dirname, 'dist-web'),
+    emptyOutDir: true,
     rollupOptions: {
       input: resolve(__dirname, 'web/index.html')
     }
@@ -19,7 +23,6 @@ export default defineConfig({
     }
   },
   esbuild: {
-    // Handle TypeScript files
     include: /\.(tsx?|jsx?)$/,
     loader: 'ts'
   }
