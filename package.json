@@ -9,7 +9,7 @@
     "demo": "tsx src/demo.ts",
     "test": "tsx src/demo.ts",
     "dev": "vite",
-    "build:web": "vite build",
+    "build:web": "vite build && echo 'Build output:' && ls -la && ls -la dist",
     "preview": "vite preview"
   },
   "keywords": [],
